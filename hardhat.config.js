@@ -27,43 +27,50 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.5",
   networks: {
-    hardhat:{
-      forking: {
-        url: process.env.ROPSTEN_URL,
-        allowUnlimitedContractSize: true,
-        timeout:90000,
-        //blockNumber:12325509
-      }
+  //   hardhat:{
+  //     forking: {
+  //       url: process.env.ROPSTEN_URL,
+  //       allowUnlimitedContractSize: true,
+  //       timeout:90000,
+  //       //blockNumber:12325509
+  //     }
       
+  //   },
+
+  //   ropsten: {
+  //     url: process.env.ROPSTEN_URL,
+  //     accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [process.env.PRIVATE_KEY0,process.env.PRIVATE_KEY1,process.env.PRIVATE_KEY2,process.env.PRIVATE_KEY3,process.env.PRIVATE_KEY4,process.env.PRIVATE_KEY5],
+  //     gas:5603244
+
+  //   },
+  //   bsctest: {
+  //     url: "https://data-seed-prebsc-1-s1.binance.org:8545",
+  //     chainId: 97,
+  //     gasPrice: 20000000000,
+  //     accounts: {
+  //       mnemonic: process.env.MNEMONIC,
+  //       path: "m/44'/60'/0'/0",
+  //       initialIndex: 0,
+  //       count: 20,
+  //       passphrase: "",
+  //     },
+  //   },
+
+  //  roburna : {
+  //     url: process.env.ROBURNA_URL || 'https://preseed-testnet-1.roburna.com/',
+  //     accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [process.env.PRIVATE_KEY0,process.env.PRIVATE_KEY1,process.env.PRIVATE_KEY2,process.env.PRIVATE_KEY3,process.env.PRIVATE_KEY4,process.env.PRIVATE_KEY5],
+  //     gas:5603244,
+  //     chainId:159
+
+  //   },
+    goerli: {
+      url: process.env.GOERLI_RPC_URL,
+      accounts: [
+        process.env.PRIVATE_KEY0,
+        process.env.PRIVATE_KEY1,
+        process.env.PRIVATE_KEY2,
+      ],
     },
-
-    ropsten: {
-      url: process.env.ROPSTEN_URL,
-      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [process.env.PRIVATE_KEY0,process.env.PRIVATE_KEY1,process.env.PRIVATE_KEY2,process.env.PRIVATE_KEY3,process.env.PRIVATE_KEY4,process.env.PRIVATE_KEY5],
-      gas:5603244
-
-    },
-    bsctest: {
-      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
-      chainId: 97,
-      gasPrice: 20000000000,
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 20,
-        passphrase: "",
-      },
-    },
-
-   roburna : {
-      url: process.env.ROBURNA_URL || 'https://preseed-testnet-1.roburna.com/',
-      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [process.env.PRIVATE_KEY0,process.env.PRIVATE_KEY1,process.env.PRIVATE_KEY2,process.env.PRIVATE_KEY3,process.env.PRIVATE_KEY4,process.env.PRIVATE_KEY5],
-      gas:5603244,
-      chainId:159
-
-    },
-
 
   },
   gasReporter: {
